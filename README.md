@@ -33,7 +33,6 @@ Custom smart self-sufficient loader for fast loading
     with home, the same as in dumps.
     Dumper remembers the parent, accesses all its fields, remembers
     them and their values, and saves the field values.
-    uses the dumps function.
   # parent_back:
     p.parent_back(parent, home)
     When dumping, Dumper remembers everything and when you pass 
