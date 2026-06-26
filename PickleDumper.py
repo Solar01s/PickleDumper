@@ -37,10 +37,13 @@ class PickleDumper:
     def parent_dumps(self, parent ,home="pd"):
         
         self.fields = tuple(vars(parent).keys())
-        for field in vars(parent).values():
+        for name, field in vars(parent).items():
             if field is self:
                 continue
-            self.dumps(field)
+            
+            with open(name + ".pkl", "wb") as f:
+                pickle.dump(field, f)
+            self.dumpers.append(name + ".pkl")
             
         if self.home is not False:
             pd = copy.deepcopy(self)
