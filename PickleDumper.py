@@ -58,7 +58,7 @@ class PickleDumper:
             values = pd.comeback(home=home)
         else:
             fields = self.fields
-            values = self.comeback()
+            values = self.comeback(home=home)
         for fi, val in zip(fields, values):
             setattr(parent, fi, val)
     
@@ -67,10 +67,8 @@ class PickleDumper:
             with open(home, "rb") as f:
                 pd = pickle.load(f)
             dumpers = pd.dumpers
-            names = pd.names
         else:
             dumpers = self.dumpers
-            names = self.names
         backs = []
         for d in dumpers:
             with open(d, "rb") as f:
@@ -80,6 +78,6 @@ class PickleDumper:
                 with open(a, "rb") as f:
                     backs.append(pickle.load(f))
         if home is not False:
-            return pd, backs
+            return backs
         else:
             return backs
