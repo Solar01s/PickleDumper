@@ -22,7 +22,7 @@ Custom smart self-sufficient loader for fast loading
     specifed in home.
 
   # comeback:
-    p, backs = PickleDumper.comeback(*addings, home)
+    backs = PickleDumper.comeback(*addings, home)
     When dumping, Dumper remembers everything and when you pass 
     the name of the file it saved itself to in home, it will instantly
     remember and return a list of backs.
